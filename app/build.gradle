@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -20,6 +20,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -33,4 +36,7 @@ dependencies {
 
     // ViewModel & LiveData
     implementation "android.arch.lifecycle:extensions:$rootProject.lifecycle_version"
+
+    //data binding
+    kapt "com.android.databinding:compiler:$rootProject.gradle_version"
 }
